@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e75822">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="व्यापार मेला">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>व्यापार मेला</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;font-family:Arial,sans-serif}
+iframe{border:0;width:100%;height:100%;display:block}
+#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:5;color:#e75822;font-weight:700}
+</style>
+</head>
+<body>
+<div id="loading">व्यापार मेला खोल रहा है…</div>
+<iframe src="https://script.google.com/macros/s/AKfycbyQ-21O26fua4i24ICFfgCPQOpMHJ0gNX2Y_5oW-1gUTbe0qGKJKNS9RNHMilX-rEFu/exec" allow="clipboard-read; clipboard-write; fullscreen; geolocation"></iframe>
+<script>
+document.querySelector('iframe').addEventListener('load',()=>document.getElementById('loading').style.display='none');
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
